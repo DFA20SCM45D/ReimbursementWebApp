@@ -1,94 +1,56 @@
 package JDBC;
 
-import AccountDetails.Account;
-import AccountDetails.CreditRequest;
-import AccountDetails.Transaction;
-import DataStructure.MySinglyLinkedList;
-import User.Bankuser;
 
+
+import Model.Employee;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DataGetterService{
 
-    private DataGetter dataGetter;
+    private ConnectionManager cm;
 
-    /**
-     * constructor for DataGetterService with a dependency injection to the dataGetter class
-     *
-     * @param dataGetter
-     */
-
-    public DataGetterService(DataGetter dataGetter) {
-        this.dataGetter = dataGetter;
+    public DataGetterService(ConnectionManager cm) {
+        this.cm = cm;
     }
 
-    /**
-     * gets last bank user id
-     * @return int last bank user id
-     */
-    public int getLastBankUserID(){
-        return dataGetter.getLastBankUserID();
+    public List<Employee> viewAllEmployees(){
+
+        Connection connection = null;
+        List<Employee> employeeList = new ArrayList<>();
+
+        try{
+
+            String QUERY = "select * from employee";
+
+            connection = cm.getConnection();
+            PreparedStatement stmt = connection.prepareStatement(QUERY);
+
+            ResultSet rs = stmt.executeQuery();
+
+            while(rs.next()) {
+                //Display values
+                System.out.println("\n");
+                System.out.print("ID: " + rs.getInt("empid"));
+                System.out.print(", Name: " + rs.getString("fname"));
+                System.out.print(", Account No: " + rs.getString("lname"));
+
+                Employee e = new Employee();
+                e.setEmpID(rs.getInt("empid"));
+                e.setFirstName(rs.getString("fname"));
+                e.setLastName(rs.getString("lname"));
+                employeeList.add(e);
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return employeeList;
     }
-
-    /**
-     * get a bank user object from the database using dataGetter class
-     * @param customerid
-     * @return bankuser
-     * @throws SQLException
-     */
-    public Bankuser getBankUserByCustomerID(String customerid) throws SQLException {
-        return dataGetter.getBankUserByCustomerID(customerid);
-    }
-
-    /**
-     * get a last transaction id
-     * @return String transaction id
-     * @throws SQLException
-     */
-    public String getLastTransactionID() throws SQLException {
-        return dataGetter.getLastTransactionID();
-    }
-
-    /**
-     * get a list of transaction as per account id
-     * @param accountNo
-     * @return a list of transaction
-     * @throws SQLException
-     */
-
-    public MySinglyLinkedList<Transaction> getTransactionDB(String accountNo) throws SQLException {
-        return dataGetter.getTransactionDB(accountNo);
-    }
-
-    /**
-     * get account object
-     * @param accountno
-     * @return account object
-     * @throws SQLException
-     */
-    public Account getAccountDB(String accountno) throws SQLException {
-        return dataGetter.getAccountDB(accountno);
-    }
-
-    /**
-     * get a list of bankuser objects with all account numbers registered
-     * @param login
-     * @param password
-     * @return list of a bankuser object
-     * @throws SQLException
-     */
-    public MySinglyLinkedList<Bankuser> ifLogInPasswordMatch(String login, String password) throws SQLException {
-        return dataGetter.ifLogInPasswordMatch(login, password);
-    }
-
-    /**
-     * gets list of all pending credit requests
-     * @return boolean
-     * @throws SQLException
-     */
-    public MySinglyLinkedList<CreditRequest> getCreditRequests() throws SQLException {
-        return dataGetter.getCreditRequests();
-    }
-
-
 }

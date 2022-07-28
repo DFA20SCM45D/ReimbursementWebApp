@@ -4,4 +4,17 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+
+  <servlet>
+    <servlet-name>ViewEmployee</servlet-name>
+    <servlet-class>Servlet.ViewEmployee</servlet-class>
+    <init-param>
+      <param-name>ServletName</param-name>
+      <param-value>View Employee</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewEmployee</servlet-name>
+    <url-pattern>/employee/*</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -1,6 +1,18 @@
 package Service;
 
+import JDBC.DataGetterService;
+import Model.Employee;
+
+import java.util.List;
+
 public class ManagerService {
+
+
+    DataGetterService dgs;
+
+    public ManagerService(DataGetterService dgs) {
+        this.dgs = dgs;
+    }
 
     public boolean processReimbursementRequest(){
 
@@ -16,7 +28,9 @@ public class ManagerService {
 
     }
 
-    public void viewAllEmployees(){
+    public List<Employee> viewAllEmployees(){
+
+        return dgs.viewAllEmployees();
 
     }
 
