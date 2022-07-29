@@ -5,16 +5,35 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
 
+  <listener>
+    <listener-class>Servlet.ContextListener</listener-class>
+  </listener>
+
+  <context-param>
+    <param-name>URL</param-name>
+    <param-value>jdbc:postgresql://java-revature-dhairya.cibikjimihdn.us-east-2.rds.amazonaws.com:5432/project1</param-value>
+  </context-param>
+
+  <context-param>
+    <param-name>USERNAME</param-name>
+    <param-value>postgres</param-value>
+  </context-param>
+
+  <context-param>
+    <param-name>PASSWORD</param-name>
+    <param-value>dhairyadixit</param-value>
+  </context-param>
+
   <servlet>
-    <servlet-name>ViewEmployee</servlet-name>
-    <servlet-class>Servlet.ViewEmployee</servlet-class>
+    <servlet-name>ViewEmployeeServlet</servlet-name>
+    <servlet-class>Servlet.ViewEmployeeServlet</servlet-class>
     <init-param>
       <param-name>ServletName</param-name>
       <param-value>View Employee</param-value>
     </init-param>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ViewEmployee</servlet-name>
+    <servlet-name>ViewEmployeeServlet</servlet-name>
     <url-pattern>/employee/*</url-pattern>
   </servlet-mapping>
 </web-app>

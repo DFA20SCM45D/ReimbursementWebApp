@@ -1,41 +1,64 @@
 package Service;
 
-import JDBC.DataGetterService;
+import JDBC.AuthenticationDao;
+import JDBC.EmployeeDao;
+import JDBC.ReimbursementDao;
 import Model.Employee;
+import Model.Manager;
+import Model.Reimbursement;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ManagerService {
+    private EmployeeDao employeeDao;
 
-
-    DataGetterService dgs;
-
-    public ManagerService(DataGetterService dgs) {
-        this.dgs = dgs;
+    public ManagerService(EmployeeDao employeeDao) {
+        this.employeeDao = employeeDao;
     }
 
-    public boolean processReimbursementRequest(){
+    private ReimbursementDao reimbursementDao;
 
-        return true;
+    public ManagerService(ReimbursementDao reimbursementDao) {
+        this.reimbursementDao = reimbursementDao;
     }
 
-    public void viewPendingRequestAllEmployee(){
+    private AuthenticationDao authenticationDao;
 
+    public ManagerService(AuthenticationDao authenticationDao) {
+        this.authenticationDao = authenticationDao;
+    }
+
+    public Manager managerLogin(String login, String password){
+        return authenticationDao.loginAuthenticationManager(login, password);
+    }
+    public boolean processReimbursementRequest(int requestid, int managerid, String status){
+
+        return reimbursementDao.processReimbursementRequest(requestid, managerid, status);
 
     }
 
-    public void viewResolvedRequestWithManager() {
+    public List<Reimbursement> viewPendingRequestAllEmployee(){
 
+        return reimbursementDao.ViewPendingRequestAllEmployee();
+
+    }
+
+    public List<Reimbursement> viewResolvedRequestWithManager() {
+        return reimbursementDao.viewResolvedReimbursementRequest();
     }
 
     public List<Employee> viewAllEmployees(){
 
-        return dgs.viewAllEmployees();
+        return employeeDao.viewAllEmployees();
 
     }
 
-    public void viewReimbursementRequestSingleEmployee(){
-
+    public List<Reimbursement> viewReimbursementRequestSingleEmployee(int empid){
+            List<Reimbursement> rList = new ArrayList<>();
+            rList.addAll(reimbursementDao.viewPendingReimbursementRequest(empid));
+            rList.addAll(reimbursementDao.viewResolvedReimbursementRequest(empid));
+            return rList;
     }
 
     public boolean registerNewEmployee() {

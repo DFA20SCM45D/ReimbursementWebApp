@@ -5,7 +5,7 @@ public class Employee extends User {
     private int empID;
     private int managerID;
 
-    private BankAccount bankAccount;
+    private String bankAccount;
 
     public Employee() {
     }
@@ -32,11 +32,11 @@ public class Employee extends User {
         this.managerID = managerID;
     }
 
-    public BankAccount getBankAccount() {
+    public String getBankAccount() {
         return bankAccount;
     }
 
-    public void setBankAccount(BankAccount bankAccount) {
+    public void setBankAccount(String bankAccount) {
         this.bankAccount = bankAccount;
     }
 }

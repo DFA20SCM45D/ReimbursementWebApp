@@ -1,0 +1,12 @@
+
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(á–Ì“
+
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÂûÌË8·àÏ¤0
+y
+java:S1450	"WRemove the "employee" field and declare it as a local variable in the relevant methods.(é¡û¦ıÿÿÿÿ8¢‘¤0
+M
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8¢‘¤0
+g
+java:S1128"JRemove this unused import 'com.fasterxml.jackson.annotation.JsonProperty'.(ËÃ§Ï8¢‘¤0
+N
+java:S1068	",Remove this unused "employee" private field.(é¡û¦ıÿÿÿÿ8õôŒ‘¤0
