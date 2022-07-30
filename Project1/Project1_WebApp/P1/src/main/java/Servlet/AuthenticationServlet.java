@@ -16,10 +16,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -42,6 +39,8 @@ public class AuthenticationServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        HttpSession userSession = req.getSession(true);
+
         Employee employee = om.readValue(req.getInputStream(), Employee.class);
 
         ConnectionManager cm = (ConnectionManager) getServletContext().getAttribute("database");
@@ -50,6 +49,8 @@ public class AuthenticationServlet extends HttpServlet {
         EmployeeService es = new EmployeeService(authenticationDao);
 
       Employee e = es.employeeLogin(employee.getLoginID(), employee.getPassword());
+
+      userSession.setAttribute("empid",e.getEmpID());
 
        if(e != null){
 

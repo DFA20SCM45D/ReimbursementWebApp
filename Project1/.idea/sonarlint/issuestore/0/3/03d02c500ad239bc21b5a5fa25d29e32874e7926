@@ -27,17 +27,17 @@ t	java:S120"ZRename this package name to match the regular expression '^[a-z_
 c
 java:S2259#"HA "NullPointerException" could be thrown; "connection" is nullable here.(¯ÅåĞúÿÿÿÿ
 j
-java:S2095#"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¯ÅåĞúÿÿÿÿ
+java:S2095>"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¯ÅåĞúÿÿÿÿ
 k
 java:S2095Â"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¯ÅåĞúÿÿÿÿ
 j
 java:S2095`"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¯ÅåĞúÿÿÿÿ
 k
+java:S2095‚"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¯ÅåĞúÿÿÿÿ
+k
 java:S2095£"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¯ÅåĞúÿÿÿÿ
 j
-java:S2095>"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¯ÅåĞúÿÿÿÿ
-k
-java:S2095‚"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¯ÅåĞúÿÿÿÿ
+java:S2095#"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¯ÅåĞúÿÿÿÿ
 ]	java:S125"<This block of commented-out lines of code should be removed.(Üú£áÿÿÿÿÿ8Á¬öà¤0
 S	java:S106!"9Replace this use of System.out or System.err by a logger.(ÁÙú€ıÿÿÿÿ
 S	java:S106E"9Replace this use of System.out or System.err by a logger.(ƒÇãˆúÿÿÿÿ

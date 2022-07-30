@@ -75,4 +75,17 @@
     <servlet-name>LogoutServlet</servlet-name>
     <url-pattern>/logout/*</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>ViewReimbursementRequestEmployee</servlet-name>
+    <servlet-class>Servlet.ViewReimbursementRequestEmployee</servlet-class>
+    <init-param>
+      <param-name>ServletName</param-name>
+      <param-value>Authentication Login</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewReimbursementRequestEmployee</servlet-name>
+    <url-pattern>/viewReimbursementRequest/*</url-pattern>
+  </servlet-mapping>
 </web-app>

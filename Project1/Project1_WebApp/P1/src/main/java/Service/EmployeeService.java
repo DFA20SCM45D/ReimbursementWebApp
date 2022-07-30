@@ -60,14 +60,14 @@ public class EmployeeService {
     }
 
 
-    public Employee viewProfileInformation(String login){ //needs login id from servlet
+    public List<Employee> viewProfileInformation(int login){ //needs login id from servlet
 
         return employeeDao.viewProfileInformation(login); //pass in login ID from servlet
 
     }
 
-    public boolean updateProfileInformation(Employee employee) {
-        return employeeDao.updateProfileInformation(employee);
+    public boolean updateProfileInformation(Employee employee, int empid) {
+        return employeeDao.updateProfileInformation(employee, empid);
     }
 
     public boolean resetPassword() {

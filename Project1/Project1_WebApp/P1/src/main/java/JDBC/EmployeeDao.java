@@ -61,21 +61,22 @@ public class EmployeeDao {
         } return employeeList;
     }
 
-    public Employee viewProfileInformation(String login){
+    public List<Employee> viewProfileInformation(int login){
 
         Connection connection = null;
-        Employee employee = new Employee();
+        List<Employee> eList = new ArrayList<>();
 
         try{
-            String QUERY = "select * from employee where login = ?";
+            String QUERY = "select * from employee where empid = ?";
 
             connection = cm.getConnection();
             PreparedStatement stmt = connection.prepareStatement(QUERY);
 
-            stmt.setString(1,login.trim());
+            stmt.setInt(1,login);
             ResultSet rs = stmt.executeQuery();
 
             while(rs.next()) {
+                Employee employee = new Employee();
                 //Display values
                 System.out.println("\n");
                 System.out.print("ID: " + rs.getInt("empid"));
@@ -85,19 +86,20 @@ public class EmployeeDao {
                 employee.setEmpID(rs.getInt("empid"));
                 employee.setFirstName(rs.getString("fname"));
                 employee.setLastName(rs.getString("lname"));
+                eList.add(employee);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return employee;
+        return eList;
     }
 
-    public boolean updateProfileInformation(Employee e) {
+    public boolean updateProfileInformation(Employee e, int empid) {
 
         Connection connection = null;
 
         try {
-            String QUERY = "update table employee(fname, lname, emailid, password) values(?,?,?,?)";
+            String QUERY = "update employee set fname = ?, lname = ?, emailid = ?, password = ? where empid = ?";
 
             connection = cm.getConnection();
             PreparedStatement stmt = connection.prepareStatement(QUERY);
@@ -106,6 +108,9 @@ public class EmployeeDao {
             stmt.setString(2,e.getLastName());
             stmt.setString(3,e.getEmailID());
             stmt.setString(4,e.getPassword());
+            stmt.setInt(5,empid);
+
+            stmt.executeUpdate();
 
             return true;
 
