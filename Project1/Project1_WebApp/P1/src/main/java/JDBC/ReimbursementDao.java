@@ -18,21 +18,28 @@ public class ReimbursementDao {
         this.cm = cm;
     }
 
-    public boolean submitReimbursementRequest(String login, int empid, Reimbursement r) {
+    public boolean submitReimbursementRequest(int empid, Reimbursement r) {
 
         Connection connection = null;
-        Reimbursement reimbursement = new Reimbursement();
 
         try {
             String QUERY = "insert into reimbursement(empid, amount, bankaccountno, status) values(?,?,?,?)";
 
+            // insert into reimbursement(empid, amount, bankaccountno, status) values(1, 500.00, '000111123', 'Pending');
+
             connection = cm.getConnection();
+
+            if(connection != null) {
+                System.out.println("Connection established in reimbursementdao"); }
+
             PreparedStatement stmt = connection.prepareStatement(QUERY);
 
             stmt.setInt(1,empid);
             stmt.setDouble(2,r.getReimburseAmount());
             stmt.setString(3,r.getBankAccount());
             stmt.setString(4,"Pending");
+
+            stmt.executeUpdate();
 
             return true;
 

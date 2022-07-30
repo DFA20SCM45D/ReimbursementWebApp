@@ -3,6 +3,7 @@ package JDBC;
 import Model.Employee;
 import Model.Reimbursement;
 import Service.ManagerService;
+import State.SystemState;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,39 +20,45 @@ public class EmployeeDao {
         this.cm = cm;
     }
 
-    public List<Employee> viewAllEmployees(){
+    private SystemState systemState = new SystemState();
 
-        Connection connection = null;
+    public List<Employee> viewAllEmployees() {
+
         List<Employee> employeeList = new ArrayList<>();
 
-        try{
+        if (systemState.getSystemStateId() == 0) {
 
-            String QUERY = "select * from employee";
+            System.out.println("system id is =" +systemState.getSystemStateId()+" shoud be 1");
+            Connection connection = null;
 
-            connection = cm.getConnection();
-            PreparedStatement stmt = connection.prepareStatement(QUERY);
+            try {
 
-            ResultSet rs = stmt.executeQuery();
+                String QUERY = "select * from employee";
 
-            while(rs.next()) {
-                //Display values
-                System.out.println("\n");
-                System.out.print("ID: " + rs.getInt("empid"));
-                System.out.print(", Name: " + rs.getString("fname"));
-                System.out.print(", Account No: " + rs.getString("lname"));
+                connection = cm.getConnection();
+                PreparedStatement stmt = connection.prepareStatement(QUERY);
 
-                Employee e = new Employee();
-                e.setEmpID(rs.getInt("empid"));
-                e.setFirstName(rs.getString("fname"));
-                e.setLastName(rs.getString("lname"));
-                employeeList.add(e);
+                ResultSet rs = stmt.executeQuery();
 
+                while (rs.next()) {
+                    //Display values
+                    System.out.println("\n");
+                    System.out.print("ID: " + rs.getInt("empid"));
+                    System.out.print(", Name: " + rs.getString("fname"));
+                    System.out.print(", Account No: " + rs.getString("lname"));
+
+                    Employee e = new Employee();
+                    e.setEmpID(rs.getInt("empid"));
+                    e.setFirstName(rs.getString("fname"));
+                    e.setLastName(rs.getString("lname"));
+                    employeeList.add(e);
+
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
 
-        return employeeList;
+        } return employeeList;
     }
 
     public Employee viewProfileInformation(String login){

@@ -41,7 +41,7 @@ public class ViewEmployeeServlet extends HttpServlet {
         out.println(req.getRequestURI());
 
         ConnectionManager cm = (ConnectionManager) getServletContext().getAttribute("database");
-
+//if login == true
         EmployeeDao employeeDao = new EmployeeDao(cm);
 
         ManagerService ms = new ManagerService(employeeDao);

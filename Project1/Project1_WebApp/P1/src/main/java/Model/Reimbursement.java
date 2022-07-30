@@ -5,7 +5,6 @@ import java.sql.Date;
 public class Reimbursement {
 
     private int reimbursmentID;
-    private Date reimburseRequestDate;
     private double reimburseAmount;
     private String bankAccount;
     private int empID;
@@ -15,9 +14,9 @@ public class Reimbursement {
     public Reimbursement() {
     }
 
-    public Reimbursement(int reimbursmentID, Date reimburseRequestDate, double reimburseAmount, String bankAccount, int empID, int managerID, String status) {
+    public Reimbursement(int reimbursmentID, double reimburseAmount, String bankAccount, int empID, int managerID, String status) {
         this.reimbursmentID = reimbursmentID;
-        this.reimburseRequestDate = reimburseRequestDate;
+
         this.reimburseAmount = reimburseAmount;
         this.bankAccount = bankAccount;
         this.empID = empID;
@@ -25,9 +24,9 @@ public class Reimbursement {
         this.status = status;
     }
 
-    public Reimbursement(int reimbursmentID, Date reimburseRequestDate, double reimburseAmount, String bankAccount, int empID, String status) {
+    public Reimbursement(int reimbursmentID, double reimburseAmount, String bankAccount, int empID, String status) {
         this.reimbursmentID = reimbursmentID;
-        this.reimburseRequestDate = reimburseRequestDate;
+
         this.reimburseAmount = reimburseAmount;
         this.bankAccount = bankAccount;
         this.empID = empID;
@@ -40,14 +39,6 @@ public class Reimbursement {
 
     public void setReimbursmentID(int reimbursmentID) {
         this.reimbursmentID = reimbursmentID;
-    }
-
-    public Date getReimburseRequestDate() {
-        return reimburseRequestDate;
-    }
-
-    public void setReimburseRequestDate(Date reimburseRequestDate) {
-        this.reimburseRequestDate = reimburseRequestDate;
     }
 
     public double getReimburseAmount() {

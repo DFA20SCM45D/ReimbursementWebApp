@@ -36,4 +36,30 @@
     <servlet-name>ViewEmployeeServlet</servlet-name>
     <url-pattern>/employee/*</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>ReimbursementRequestServlet</servlet-name>
+    <servlet-class>Servlet.ReimbursementRequestServlet</servlet-class>
+    <init-param>
+      <param-name>ServletName</param-name>
+      <param-value>Submit Reimbursement</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReimbursementRequestServlet</servlet-name>
+    <url-pattern>/submitReimbursementRequest/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>AuthenticationServlet</servlet-name>
+    <servlet-class>Servlet.AuthenticationServlet</servlet-class>
+    <init-param>
+      <param-name>ServletName</param-name>
+      <param-value>Authentication Login</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AuthenticationServlet</servlet-name>
+    <url-pattern>/loginEmployee/*</url-pattern>
+  </servlet-mapping>
 </web-app>

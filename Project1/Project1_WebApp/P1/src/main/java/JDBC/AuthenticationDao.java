@@ -2,6 +2,7 @@ package JDBC;
 
 import Model.Employee;
 import Model.Manager;
+import State.SystemState;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,6 +11,7 @@ import java.sql.SQLException;
 
 public class AuthenticationDao {
 
+    private SystemState systemState = new SystemState();
     private ConnectionManager cm;
 
     public AuthenticationDao(ConnectionManager cm) {
@@ -70,13 +72,14 @@ public class AuthenticationDao {
                 employee.setLoginID(rs.getString("login"));
                 employee.setEmailID(rs.getString("emailid"));
                 employee.setEmpID(rs.getInt("empid"));
-                employee.setBankAccount(rs.getString("bankaccountno"));
             }
+
             rs.close();
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        systemState.setSystemStateId(1);
         return employee;
     }
 }

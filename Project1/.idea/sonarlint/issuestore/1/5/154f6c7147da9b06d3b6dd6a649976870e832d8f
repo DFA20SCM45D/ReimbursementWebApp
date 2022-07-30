@@ -1,2 +1,7 @@
 
 t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ΟΉΘΤϋÿÿÿÿ
+i
+java:S3973>"GUse indentation to denote the code conditionally executed by this "if".(½³ΕΫόÿÿÿÿ8γ€εγ¤0
+U	java:S106<"9Replace this use of System.out or System.err by a logger.(ΊΖ®―8σ€εγ¤0
+E
+java:S1128"*Remove this unused import 'Model.Manager'.(Ό¦ί£ÿÿÿÿÿ

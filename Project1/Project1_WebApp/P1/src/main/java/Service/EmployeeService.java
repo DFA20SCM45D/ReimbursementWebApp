@@ -11,6 +11,16 @@ import java.util.List;
 
 public class EmployeeService {
 
+    private int systemState;
+
+    public int getSystemState() {
+        return systemState;
+    }
+
+    public void setSystemState(int systemState) {
+        this.systemState = systemState;
+    }
+
     private ReimbursementDao reimbursementDao;
     public EmployeeService(ReimbursementDao reimbursementDao) {
         this.reimbursementDao = reimbursementDao;
@@ -29,7 +39,11 @@ public class EmployeeService {
     }
 
     public Employee employeeLogin(String login, String password){
-        return authenticationDao.loginAuthenticationEmployee(login, password);
+
+        Employee e = authenticationDao.loginAuthenticationEmployee(login, password);
+        setSystemState(1);
+        return e;
+
     }
 
     public List<Reimbursement> viewResolvedReimbursementRequest(int empid) {
@@ -41,10 +55,13 @@ public class EmployeeService {
         return reimbursementDao.viewPendingReimbursementRequest(empid);
     }
 
-    public boolean submitReimbursementRequest(String login, int empid, Reimbursement reimbursement) {
+    public boolean submitReimbursementRequest(int empid, Reimbursement r) {
 
-        return reimbursementDao.submitReimbursementRequest(login, empid, reimbursement);
+        System.out.println("system state" +systemState);
 
+        if(getSystemState() == 1)
+        return reimbursementDao.submitReimbursementRequest(empid, r);
+else return false;
     }
 
     public Employee viewProfileInformation(String login){ //needs login id from servlet
