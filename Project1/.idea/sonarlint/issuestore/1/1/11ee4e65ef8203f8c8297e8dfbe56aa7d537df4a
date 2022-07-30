@@ -1,0 +1,13 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(üåÓ½úÿÿÿÿ
+_
+java:S2583B"DChange this condition so that it does not always evaluate to "false"(äëéËûÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(“×·ôþÿÿÿÿ
+h
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(¹Â·Š
+Z
+java:S2147O"DCombine this catch with the one at line 77, which has the same body.(Ù¼üª
+C	java:S108M")Either remove or fill this block of code.(¢­§Œÿÿÿÿÿ
+>	java:S108O")Either remove or fill this block of code.(Ù¼üª
+n
+java:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(»íî¥
