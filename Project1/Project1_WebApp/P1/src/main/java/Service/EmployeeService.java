@@ -41,7 +41,6 @@ public class EmployeeService {
     public Employee employeeLogin(String login, String password){
 
         Employee e = authenticationDao.loginAuthenticationEmployee(login, password);
-        setSystemState(1);
         return e;
 
     }
@@ -57,12 +56,9 @@ public class EmployeeService {
 
     public boolean submitReimbursementRequest(int empid, Reimbursement r) {
 
-        System.out.println("system state" +systemState);
-
-        if(getSystemState() == 1)
         return reimbursementDao.submitReimbursementRequest(empid, r);
-else return false;
     }
+
 
     public Employee viewProfileInformation(String login){ //needs login id from servlet
 
