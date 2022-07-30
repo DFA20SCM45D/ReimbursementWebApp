@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -27,43 +28,50 @@ public class ReimbursementRequestServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        out.println("Initializing Servlet");
+        out.println("Initializing Reimbursement Servlet");
         om = new ObjectMapper();
         om.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
     }
 
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         Cookie[] allCookies = req.getCookies();
+        Cookie cookie = null;
 
-        Cookie cookie1 = allCookies[allCookies.length-1];
-        out.println("cookie 1 value " + cookie1.getValue() );
-        out.println("cookie 1 name "+ cookie1.getName());
+        for (Cookie cookieN : allCookies) {
+            if (cookieN.getName().equalsIgnoreCase("login")) {
+                cookieN.getValue();
+                cookie = new Cookie(cookieN.getName(), cookieN.getValue());
+                break;
+            }
+        }
 
-        if(cookie1.getValue().equals(true)) {
+        if (cookie != null) {
+            out.println("cookie 1 value " + cookie.getValue());
+            out.println("cookie 1 name " + cookie.getName());
 
-            Reimbursement reimbursement = om.readValue(req.getInputStream(), Reimbursement.class);
+            if (cookie.getValue().equals("true")) {
 
-            System.out.println(reimbursement.getReimburseAmount());
+                Reimbursement reimbursement = om.readValue(req.getInputStream(), Reimbursement.class);
 
-            ConnectionManager cm = (ConnectionManager) getServletContext().getAttribute("database");
+                System.out.println(reimbursement.getReimburseAmount());
 
-            ReimbursementDao reimbursementDao = new ReimbursementDao(cm);
-            EmployeeService es = new EmployeeService(reimbursementDao);
+                ConnectionManager cm = (ConnectionManager) getServletContext().getAttribute("database");
 
-            es.submitReimbursementRequest(reimbursement.getEmpID(), reimbursement);
+                ReimbursementDao reimbursementDao = new ReimbursementDao(cm);
+                EmployeeService es = new EmployeeService(reimbursementDao);
 
-            resp.setStatus(201);
+                es.submitReimbursementRequest(reimbursement.getEmpID(), reimbursement);
 
-        } else {
+                resp.setStatus(201);
+
+            } else {
+                out.println("not logged in to perform this action");
+            }
+        }  else {
             out.println("not logged in to perform this action");
-
-            //delete cookie code random
-           // Cookie cookie = new Cookie("username", "");
-           // cookie.setMaxAge(0);
-           // response.addCookie(cookie);
         }
     }
 }

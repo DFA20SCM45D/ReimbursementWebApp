@@ -1,4 +1,5 @@
 JDBC\ManagerDao.class
+Servlet\LogoutServlet.class
 State\SystemState.class
 Servlet\ReimbursementRequestServlet.class
 JDBC\AuthenticationDao.class

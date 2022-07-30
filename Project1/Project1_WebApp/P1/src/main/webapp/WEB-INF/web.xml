@@ -62,4 +62,17 @@
     <servlet-name>AuthenticationServlet</servlet-name>
     <url-pattern>/loginEmployee/*</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>Servlet.LogoutServlet</servlet-class>
+    <init-param>
+      <param-name>ServletName</param-name>
+      <param-value>Authentication Logout</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/logout/*</url-pattern>
+  </servlet-mapping>
 </web-app>
