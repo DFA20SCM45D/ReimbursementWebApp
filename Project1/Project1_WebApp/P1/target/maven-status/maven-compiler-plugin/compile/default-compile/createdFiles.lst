@@ -1,7 +1,12 @@
-JDBC\ManagerDao.class
-Servlet\LogoutServlet.class
 State\SystemState.class
+Servlet\ManagerLogoutServlet.class
+Servlet\ManagerViewReimbursementServlet.class
 Servlet\ReimbursementRequestServlet.class
+Servlet\ManagerViewAllEmployeeServlet.class
+Servlet\ProcessReimbursementRequestServlet.class
+JDBC\ManagerDao.class
+Servlet\EmployeeAuthenticationServlet.class
+Servlet\ManagerAuthenticationServlet.class
 JDBC\AuthenticationDao.class
 JDBC\ReimbursementDao.class
-Servlet\AuthenticationServlet.class
+Servlet\EmployeeLogoutServlet.class

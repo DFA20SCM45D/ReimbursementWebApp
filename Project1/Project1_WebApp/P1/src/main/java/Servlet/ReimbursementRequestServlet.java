@@ -39,7 +39,7 @@ public class ReimbursementRequestServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        Cookie[] allCookies = req.getCookies();
+       Cookie[] allCookies = req.getCookies();
         Cookie cookie = null;
 
         for (Cookie cookieN : allCookies) {

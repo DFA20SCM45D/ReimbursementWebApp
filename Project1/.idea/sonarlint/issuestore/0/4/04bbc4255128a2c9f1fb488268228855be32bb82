@@ -1,18 +1,22 @@
 
-J
-java:S1066~"/Merge this if statement with the enclosing one.(£½š®ûÿÿÿÿ
+a
+java:S11926"FDefine a constant instead of duplicating this literal "login" 3 times.(òœÿÿÿÿÿ
+R
+java:S1066ˆ"/Merge this if statement with the enclosing one.(£½š®ûÿÿÿÿ8˜Ü¨’¥0
 t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(üåÓ½úÿÿÿÿ
+`
+java:S2259H"EA "NullPointerException" could be thrown; "cookieM" is nullable here.(ÑÂ²ûÿÿÿÿ
 S	java:S106"9Replace this use of System.out or System.err by a logger.(“×·ôşÿÿÿÿ
 Q	java:S125"<This block of commented-out lines of code should be removed.(ØÎ‹Å
 h
-java:S3776("RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(¹Â·Š
-_
-java:S2147^"DCombine this catch with the one at line 93, which has the same body.(òç•±şÿÿÿÿ
-C	java:S108]")Either remove or fill this block of code.(¢­§Œÿÿÿÿÿ
-C	java:S108^")Either remove or fill this block of code.(òç•±şÿÿÿÿ
-•
-java:S1989€"yHandle the following exceptions that could be thrown by "readValue": IOException, StreamReadException, DatabindException.(ùİõ³ÿÿÿÿÿ
-q
-java:S1989€"UHandle the following exception that could be thrown by "getInputStream": IOException.(ùİõ³ÿÿÿÿÿ
+java:S3776("RRefactor this method to reduce its Cognitive Complexity from 26 to the 15 allowed.(¹Â·Š
+g
+java:S2147h"ECombine this catch with the one at line 103, which has the same body.(òç•±şÿÿÿÿ8æÜ¨’¥0
+J	java:S108g")Either remove or fill this block of code.(¢­§Œÿÿÿÿÿ8æÜ¨’¥0
+C	java:S108h")Either remove or fill this block of code.(òç•±şÿÿÿÿ
+œ
+java:S1989Š"yHandle the following exceptions that could be thrown by "readValue": IOException, StreamReadException, DatabindException.(ùİõ³ÿÿÿÿÿ8æÜ¨’¥0
+x
+java:S1989Š"UHandle the following exception that could be thrown by "getInputStream": IOException.(ùİõ³ÿÿÿÿÿ8æÜ¨’¥0
 K
 java:S1128"0Remove this unused import 'Model.Reimbursement'.(ÉÚ®åıÿÿÿÿ

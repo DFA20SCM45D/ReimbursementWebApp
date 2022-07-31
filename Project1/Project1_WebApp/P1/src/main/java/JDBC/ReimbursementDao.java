@@ -121,7 +121,7 @@ public class ReimbursementDao {
     public List<Reimbursement> ViewPendingRequestAllEmployee(){
 
         Connection connection = null;
-        List<Reimbursement> resolvedReimbursementRequest = new ArrayList<>();
+        List<Reimbursement> pendingReimbursementRequest = new ArrayList<>();
 
         try{
             String QUERY = "select * from reimbursement where status = 'Pending'";
@@ -143,12 +143,12 @@ public class ReimbursementDao {
                 r.setReimburseAmount(rs.getDouble("amount"));
                 r.setBankAccount(rs.getString("bankaccountno"));
                 r.setStatus(rs.getString("status"));
-                resolvedReimbursementRequest.add(r);
+                pendingReimbursementRequest.add(r);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return resolvedReimbursementRequest;
+        return pendingReimbursementRequest;
     }
 
     public List<Reimbursement> viewResolvedReimbursementRequest(){
@@ -188,13 +188,16 @@ public class ReimbursementDao {
         Connection connection = null;
 
         try {
-            String QUERY = "update table reimbursement(managerid, status) values(?,?)";
+            String QUERY = "update reimbursement set managerid = ?, status = ? where requestid = ?";
 
             connection = cm.getConnection();
             PreparedStatement stmt = connection.prepareStatement(QUERY);
 
             stmt.setInt(1,managerid);
             stmt.setString(2,status);
+            stmt.setInt(3,requestid);
+
+            stmt.executeUpdate();
 
             return true;
 

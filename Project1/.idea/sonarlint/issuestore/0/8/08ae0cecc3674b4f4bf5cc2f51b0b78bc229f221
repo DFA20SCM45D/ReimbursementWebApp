@@ -1,0 +1,13 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(üåÓ½úÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(“×·ôþÿÿÿÿ
+U
+java:S1854'"?Remove this useless assignment to local variable "userSession".(˜÷œ«
+F
+java:S1481'"0Remove this unused "userSession" local variable.(˜÷œ«
+_
+java:S2147I"DCombine this catch with the one at line 72, which has the same body.(òç•±þÿÿÿÿ
+C	java:S108H")Either remove or fill this block of code.(¢­§Œÿÿÿÿÿ
+C	java:S108I")Either remove or fill this block of code.(òç•±þÿÿÿÿ
+O
+java:S1128"4Remove this unused import 'Service.EmployeeService'.(€‡£Óúÿÿÿÿ

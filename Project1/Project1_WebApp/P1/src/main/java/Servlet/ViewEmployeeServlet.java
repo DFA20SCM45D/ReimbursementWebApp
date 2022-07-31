@@ -58,9 +58,18 @@ public class ViewEmployeeServlet extends HttpServlet {
             }
         }
 
+        Cookie cookieM = null;
+        for (Cookie cookieN : allCookies) {
+            if (cookieN.getName().equalsIgnoreCase("login")) {
+                cookieN.getValue();
+                cookieM = new Cookie(cookieN.getName(), cookieN.getValue());
+                break;
+            }
+        }
+
         if (cookie != null) {
             out.println("cookie 1 value " + cookie.getValue());
-            out.println("cookie 1 name " + cookie.getName());
+            out.println("cookie 1 name " + cookieM.getName());
 
             if (cookie.getValue().equals("true")) {
 
@@ -79,8 +88,9 @@ public class ViewEmployeeServlet extends HttpServlet {
                         EmployeeService es = new EmployeeService(employeeDao);
                         employee = es.viewProfileInformation(empid);
                     } else if (requestType.equalsIgnoreCase("all")) {
-                        ManagerService ms = new ManagerService(employeeDao);
-                        employee = ms.viewAllEmployees();
+
+                            ManagerService ms = new ManagerService(employeeDao);
+                            employee = ms.viewAllEmployees();
                     }
 
                     EmployeeResponse eList = new EmployeeResponse();

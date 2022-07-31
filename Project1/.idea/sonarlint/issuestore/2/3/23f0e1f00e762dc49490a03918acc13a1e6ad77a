@@ -6,11 +6,11 @@ java:S1989;"yHandle the following exceptions that could be thrown by "readValue
 k
 java:S1989;"UHandle the following exception that could be thrown by "getInputStream": IOException.(ð¡ÖÞ
 M	java:S106="9Replace this use of System.out or System.err by a logger.(œþë
-M
-java:S1128"+Remove this unused import 'Model.Employee'.(Ò¾‡°úÿÿÿÿ8ú¯§€¥0
+F
+java:S1128"+Remove this unused import 'Model.Employee'.(Ò¾‡°úÿÿÿÿ
 4
 java:S1128"Remove this duplicated import.(«Þªü
-M
-java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8ú¯§€¥0
-M
-java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8ú¯§€¥0
+F
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ
+F
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ

@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class Reimbursement {
 
-    private int reimbursmentID;
+    private int reimbursementID;
     private double reimburseAmount;
     private String bankAccount;
     private int empID;
@@ -14,8 +14,8 @@ public class Reimbursement {
     public Reimbursement() {
     }
 
-    public Reimbursement(int reimbursmentID, double reimburseAmount, String bankAccount, int empID, int managerID, String status) {
-        this.reimbursmentID = reimbursmentID;
+    public Reimbursement(int reimbursementID, double reimburseAmount, String bankAccount, int empID, int managerID, String status) {
+        this.reimbursementID = reimbursementID;
 
         this.reimburseAmount = reimburseAmount;
         this.bankAccount = bankAccount;
@@ -24,8 +24,8 @@ public class Reimbursement {
         this.status = status;
     }
 
-    public Reimbursement(int reimbursmentID, double reimburseAmount, String bankAccount, int empID, String status) {
-        this.reimbursmentID = reimbursmentID;
+    public Reimbursement(int reimbursementID, double reimburseAmount, String bankAccount, int empID, String status) {
+        this.reimbursementID = reimbursementID;
 
         this.reimburseAmount = reimburseAmount;
         this.bankAccount = bankAccount;
@@ -34,11 +34,11 @@ public class Reimbursement {
     }
 
     public int getReimbursmentID() {
-        return reimbursmentID;
+        return reimbursementID;
     }
 
     public void setReimbursmentID(int reimbursmentID) {
-        this.reimbursmentID = reimbursmentID;
+        this.reimbursementID = reimbursmentID;
     }
 
     public double getReimburseAmount() {
