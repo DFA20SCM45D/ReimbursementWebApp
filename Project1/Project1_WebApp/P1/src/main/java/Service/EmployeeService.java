@@ -3,6 +3,7 @@ package Service;
 import JDBC.AuthenticationDao;
 import JDBC.EmployeeDao;
 import JDBC.ReimbursementDao;
+import Model.BankAccount;
 import Model.Employee;
 import Model.Manager;
 import Model.Reimbursement;
@@ -10,16 +11,6 @@ import Model.Reimbursement;
 import java.util.List;
 
 public class EmployeeService {
-
-    private int systemState;
-
-    public int getSystemState() {
-        return systemState;
-    }
-
-    public void setSystemState(int systemState) {
-        this.systemState = systemState;
-    }
 
     private ReimbursementDao reimbursementDao;
     public EmployeeService(ReimbursementDao reimbursementDao) {
@@ -39,14 +30,10 @@ public class EmployeeService {
     }
 
     public Employee employeeLogin(String login, String password){
-
-        Employee e = authenticationDao.loginAuthenticationEmployee(login, password);
-        return e;
-
+        return authenticationDao.loginAuthenticationEmployee(login, password);
     }
 
     public List<Reimbursement> viewResolvedReimbursementRequest(int empid) {
-
         return reimbursementDao.viewResolvedReimbursementRequest(empid);
     }
 
@@ -55,23 +42,16 @@ public class EmployeeService {
     }
 
     public boolean submitReimbursementRequest(int empid, Reimbursement r) {
-
         return reimbursementDao.submitReimbursementRequest(empid, r);
     }
 
 
-    public List<Employee> viewProfileInformation(int login){ //needs login id from servlet
-
-        return employeeDao.viewProfileInformation(login); //pass in login ID from servlet
-
+    public List<Employee> viewProfileInformation(int login){
+        return employeeDao.viewProfileInformation(login);
     }
 
     public boolean updateProfileInformation(Employee employee, int empid) {
         return employeeDao.updateProfileInformation(employee, empid);
-    }
-
-    public boolean resetPassword() {
-        return true;
     }
 
 }

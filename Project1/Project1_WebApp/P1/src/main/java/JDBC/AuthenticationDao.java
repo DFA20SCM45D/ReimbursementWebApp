@@ -2,7 +2,6 @@ package JDBC;
 
 import Model.Employee;
 import Model.Manager;
-import State.SystemState;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,9 +10,7 @@ import java.sql.SQLException;
 
 public class AuthenticationDao {
 
-    private SystemState systemState = new SystemState();
     private ConnectionManager cm;
-
     public AuthenticationDao(ConnectionManager cm) {
         this.cm = cm;
     }
@@ -79,7 +76,6 @@ public class AuthenticationDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        systemState.setSystemStateId(1);
         return employee;
     }
 }

@@ -1,4 +1,3 @@
-State\SystemState.class
 Servlet\ManagerLogoutServlet.class
 Servlet\ManagerViewReimbursementServlet.class
 Servlet\ReimbursementRequestServlet.class

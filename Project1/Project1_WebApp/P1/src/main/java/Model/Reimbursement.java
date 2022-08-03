@@ -33,6 +33,13 @@ public class Reimbursement {
         this.status = status;
     }
 
+    public Reimbursement(int empID, double reimburseAmount, String bankAccount,String status) {
+        this.reimburseAmount = reimburseAmount;
+        this.bankAccount = bankAccount;
+        this.empID = empID;
+        this.status = status;
+    }
+
     public int getReimbursmentID() {
         return reimbursementID;
     }

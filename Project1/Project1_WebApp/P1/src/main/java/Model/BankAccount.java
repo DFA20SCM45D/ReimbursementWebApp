@@ -10,6 +10,10 @@ public class BankAccount {
     public BankAccount() {
     }
 
+    public BankAccount(String accountNo) {
+        this.accountNo = accountNo;
+    }
+
     public BankAccount(String accountNo, String routingNo, String accountType, String bankName) {
         this.accountNo = accountNo;
         this.routingNo = routingNo;

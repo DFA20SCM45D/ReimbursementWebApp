@@ -16,6 +16,11 @@ public class Employee extends User {
         this.managerID = managerID;
     }
 
+    public Employee(String firstName, String lastName, String emailID, String password, String bankAccount) {
+        super(firstName, lastName, emailID, password);
+        this.bankAccount = bankAccount;
+    }
+
     public int getEmpID() {
         return empID;
     }

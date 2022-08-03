@@ -1,9 +1,10 @@
 package JDBC;
 
+import Model.BankAccount;
 import Model.Employee;
 import Model.Reimbursement;
 import Service.ManagerService;
-import State.SystemState;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,16 +21,12 @@ public class EmployeeDao {
         this.cm = cm;
     }
 
-    private SystemState systemState = new SystemState();
+
 
     public List<Employee> viewAllEmployees() {
 
         List<Employee> employeeList = new ArrayList<>();
-
-        if (systemState.getSystemStateId() == 0) {
-
-            System.out.println("system id is =" +systemState.getSystemStateId()+" shoud be 1");
-            Connection connection = null;
+        Connection connection = null;
 
             try {
 
@@ -58,7 +55,7 @@ public class EmployeeDao {
                 throw new RuntimeException(e);
             }
 
-        } return employeeList;
+         return employeeList;
     }
 
     public List<Employee> viewProfileInformation(int login){
@@ -67,12 +64,13 @@ public class EmployeeDao {
         List<Employee> eList = new ArrayList<>();
 
         try{
-            String QUERY = "select * from employee where empid = ?";
+            String QUERY = "select * from employee join bankaccount on employee.empid = ? AND bankaccount.empid = ?";
 
             connection = cm.getConnection();
             PreparedStatement stmt = connection.prepareStatement(QUERY);
 
             stmt.setInt(1,login);
+            stmt.setInt(2,login);
             ResultSet rs = stmt.executeQuery();
 
             while(rs.next()) {
@@ -86,6 +84,9 @@ public class EmployeeDao {
                 employee.setEmpID(rs.getInt("empid"));
                 employee.setFirstName(rs.getString("fname"));
                 employee.setLastName(rs.getString("lname"));
+                employee.setManagerID(rs.getInt("managerid"));
+                employee.setEmailID(rs.getString("emailid"));
+                employee.setBankAccount(rs.getString("bankaccountno"));
                 eList.add(employee);
             }
         } catch (SQLException e) {
@@ -112,11 +113,38 @@ public class EmployeeDao {
 
             stmt.executeUpdate();
 
+           // updateBankAccountDetails(empid, b, connection);
+
             return true;
 
         } catch (SQLException es) {
             throw new RuntimeException(es);
 
         }
+    }
+
+    private boolean updateBankAccountDetails(int empid, BankAccount b, Connection connection){
+
+        try {
+            String QUERY = "update bankaccount set bankaccountno = ?, bankname = ?, routingno = ?, acctype = ? where empid = ?";
+
+            connection = cm.getConnection();
+            PreparedStatement stmt = connection.prepareStatement(QUERY);
+
+            stmt.setString(1,b.getAccountNo());
+            stmt.setString(2,b.getBankName());
+            stmt.setString(3,b.getRoutingNo());
+            stmt.setString(4,b.getAccountType());
+            stmt.setInt(5,empid);
+
+            stmt.executeUpdate();
+
+            return true;
+
+        } catch (SQLException es) {
+            throw new RuntimeException(es);
+
+        }
+
     }
 }

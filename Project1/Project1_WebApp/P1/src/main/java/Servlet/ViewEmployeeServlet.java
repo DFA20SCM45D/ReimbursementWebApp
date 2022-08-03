@@ -2,6 +2,7 @@ package Servlet;
 
 import JDBC.ConnectionManager;
 import JDBC.EmployeeDao;
+import Model.BankAccount;
 import Model.Employee;
 import Model.EmployeeResponse;
 import Model.Reimbursement;
@@ -136,13 +137,15 @@ public class ViewEmployeeServlet extends HttpServlet {
                 if (requestType.equalsIgnoreCase("profile_update")) {
 
                     Employee employee = om.readValue(req.getInputStream(), Employee.class);
+                   // BankAccount ba = om.readValue(req.getInputStream(), BankAccount.class);
 
                     ConnectionManager cm = (ConnectionManager) getServletContext().getAttribute("database");
                     EmployeeDao employeeDao = new EmployeeDao(cm);
 
                     EmployeeService es = new EmployeeService(employeeDao);
+                   // BankAccount ba = new BankAccount("111111112","000000000","5th2nd","checking");
 
-                    out.println("employee name new : "+employee.getFirstName() +" empid: " +empid);
+                  //  out.println("employee name new : "+ba.getAccountNo() +" empid: " +empid);
 
                     es.updateProfileInformation(employee, empid);
 

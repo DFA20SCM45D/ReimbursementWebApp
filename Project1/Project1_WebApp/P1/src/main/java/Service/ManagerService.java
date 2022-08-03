@@ -29,6 +29,8 @@ public class ManagerService {
         this.authenticationDao = authenticationDao;
     }
 
+
+
     public Manager managerLogin(String login, String password){
         return authenticationDao.loginAuthenticationManager(login, password);
     }
@@ -47,13 +49,11 @@ public class ManagerService {
     public List<Reimbursement> viewResolvedRequestWithManager() {
         return reimbursementDao.viewResolvedReimbursementRequest();
     }
-
     public List<Employee> viewAllEmployees(){
 
         return employeeDao.viewAllEmployees();
 
     }
-
     public List<Reimbursement> viewReimbursementRequestSingleEmployee(int empid){
             List<Reimbursement> rList = new ArrayList<>();
             rList.addAll(reimbursementDao.viewPendingReimbursementRequest(empid));
@@ -61,8 +61,4 @@ public class ManagerService {
             return rList;
     }
 
-    public boolean registerNewEmployee() {
-        return true;
-
-    }
 }
