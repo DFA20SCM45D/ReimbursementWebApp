@@ -2,6 +2,16 @@ package Model;
 
 import java.sql.Date;
 
+/**
+ * Class Reimbursement
+ * Attributes
+ * reimbursementID - Reimbursement ID
+ * reimburseAmount - Reimbursement Amount
+ * bankAccount - Bank Account Number
+ * empID - Employee ID
+ * managerID - Manager ID
+ * status - status of the Reimbursement request
+ */
 public class Reimbursement {
 
     private int reimbursementID;

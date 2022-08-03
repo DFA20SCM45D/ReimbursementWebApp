@@ -12,6 +12,11 @@ import javax.servlet.ServletContextListener;
 
 
 public class ContextListener implements ServletContextListener {
+
+    /**
+     * To initialize connection details
+     * @param servletContextEvent
+     */
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
         System.out.println("Context Initialize");
@@ -25,6 +30,10 @@ public class ContextListener implements ServletContextListener {
         context.setAttribute("database", cm);
     }
 
+    /**
+     * Destroys current content
+     * @param servletContextEvent
+     */
     @Override
     public void contextDestroyed(ServletContextEvent servletContextEvent) {
         System.out.println("Context Destroyed");

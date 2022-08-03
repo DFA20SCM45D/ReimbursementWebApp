@@ -2,6 +2,11 @@ package Model;
 
 public class Manager extends User{
 
+    /**
+     * Class Manager
+     * Attributes
+     * managerID - Manager ID
+     */
     private int managerID;
 
     public Manager() {

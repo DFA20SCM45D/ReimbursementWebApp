@@ -32,6 +32,13 @@ public class ManagerViewReimbursementServlet extends HttpServlet {
         om.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
     }
 
+    /**
+     * Request to view pending and resolved requests of al employees and view all reimbursement requests by an employee
+     * @param req
+     * @param resp
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 

@@ -32,6 +32,13 @@ public class ManagerViewAllEmployeeServlet extends HttpServlet {
         om.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
     }
 
+    /**
+     * Request to view all employee by manager
+     * @param req
+     * @param resp
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         out.println(req.getRequestURI());

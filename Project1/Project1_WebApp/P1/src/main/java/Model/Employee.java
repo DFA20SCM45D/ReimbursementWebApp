@@ -2,6 +2,13 @@ package Model;
 
 public class Employee extends User {
 
+    /**
+     * Employee class
+     * Attributes
+     * empID - employee ID
+     * managerID - Manager ID
+     * bankAccount - Account Number of the Bank Account
+     */
     private int empID;
     private int managerID;
 

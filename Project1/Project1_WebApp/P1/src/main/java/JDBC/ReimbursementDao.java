@@ -18,6 +18,12 @@ public class ReimbursementDao {
         this.cm = cm;
     }
 
+    /**
+     * updates the Reimbursement request to database
+     * @param empid EmployeeID
+     * @param r Reimbursement object
+     * @return true if reimbursement request is updated
+     */
     public boolean submitReimbursementRequest(int empid, Reimbursement r) {
 
         Connection connection = null;
@@ -50,6 +56,11 @@ public class ReimbursementDao {
 
     }
 
+    /**
+     * Returns resolved reimbursement request
+     * @param empid Employee ID
+     * @return List of resolved reimbursement requests
+     */
     public List<Reimbursement> viewResolvedReimbursementRequest(int empid){
 
         Connection connection = null;
@@ -84,6 +95,11 @@ public class ReimbursementDao {
         return resolvedReimbursementRequest;
     }
 
+    /**
+     * Displays the Pending Reimbursement Request
+     * @param empid Employee ID
+     * @return list of pending reimbursement requests
+     */
     public List<Reimbursement> viewPendingReimbursementRequest(int empid){
 
         Connection connection = null;
@@ -118,6 +134,10 @@ public class ReimbursementDao {
         return resolvedReimbursementRequest;
     }
 
+    /**
+     * Returns list of pending requests of all Employee
+     * @return list of pending requests of all Employee
+     */
     public List<Reimbursement> ViewPendingRequestAllEmployee(){
 
         Connection connection = null;
@@ -151,6 +171,10 @@ public class ReimbursementDao {
         return pendingReimbursementRequest;
     }
 
+    /**
+     * Returns list of resolved reimbursement requests
+     * @return list of resolved reimbursement requests
+     */
     public List<Reimbursement> viewResolvedReimbursementRequest(){
 
         Connection connection = null;
@@ -184,6 +208,13 @@ public class ReimbursementDao {
         return resolvedReimbursementRequest;
     }
 
+    /**
+     * Approves or Denies the reimbursement request
+     * @param requestid Reimbursement Request ID
+     * @param managerid Manager ID
+     * @param status approve/denied status of the reimbursement request ID
+     * @return true if reimbursement request is processed
+     */
     public boolean processReimbursementRequest(int requestid, int managerid, String status){
         Connection connection = null;
 

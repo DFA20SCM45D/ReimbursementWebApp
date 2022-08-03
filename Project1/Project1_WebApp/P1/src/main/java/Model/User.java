@@ -1,13 +1,22 @@
 package Model;
 
 public class User {
+    /**
+     * User Class
+     * Attributes
+     * firstName - first Name of Employee or manager
+     * lastName - last name of Employee or manager
+     * emailID - email ID of Employee or manager
+     * loginID - login ID of Employee or manager
+     * password - password of Employee or manager
+     *
+     */
 
     private String firstName;
     private String lastName;
     private String emailID;
     private String loginID;
     private String password;
-    private int systemStateID;
 
     public User() {
     }
@@ -65,13 +74,5 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public int getSystemStateID() {
-        return systemStateID;
-    }
-
-    public void setSystemStateID(int systemStateID) {
-        this.systemStateID = systemStateID;
     }
 }

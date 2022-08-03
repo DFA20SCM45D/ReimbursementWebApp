@@ -2,6 +2,14 @@ package Model;
 
 public class BankAccount {
 
+    /**
+     * Bank Account Class
+     * Attributes
+     * accountNo : Account number of the Bank Account
+     * routingNo : routing number of the Bank Account
+     * accountType : Type of Account
+     * bankName : Name of the Bank
+     */
     private String accountNo;
     private String routingNo;
     private String accountType;

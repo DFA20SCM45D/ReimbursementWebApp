@@ -20,6 +20,13 @@ import static java.lang.System.out;
 public class ViewReimbursementRequestEmployee extends HttpServlet {
     private ObjectMapper om = new ObjectMapper();
 
+    /**
+     * Requests for pending and resolved reimbursement requests and for all reimbursement requests by employee ID
+     * @param req
+     * @param resp
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 

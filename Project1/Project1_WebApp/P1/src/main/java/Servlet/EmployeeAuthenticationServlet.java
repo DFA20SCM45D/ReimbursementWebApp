@@ -37,11 +37,17 @@ public class EmployeeAuthenticationServlet extends HttpServlet {
         om.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
     }
 
+    /**
+     * Request to authenticate Employee Login
+     * @param req
+     * @param resp
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         HttpSession userSession = req.getSession(true);
-
 
             Employee employee = om.readValue(req.getInputStream(), Employee.class);
 

@@ -29,7 +29,14 @@ public class ManagerAuthenticationServlet extends HttpServlet{
             om.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
         }
 
-        @Override
+    /**
+     * Request to authenticate Manager Login
+     * @param req
+     * @param resp
+     * @throws ServletException
+     * @throws IOException
+     */
+    @Override
         protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
             HttpSession userSession = req.getSession(true);

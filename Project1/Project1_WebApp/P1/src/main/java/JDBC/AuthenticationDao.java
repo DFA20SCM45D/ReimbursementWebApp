@@ -15,6 +15,13 @@ public class AuthenticationDao {
         this.cm = cm;
     }
 
+    /**
+     * Authenticates the Manager Account's login
+     * @param login login ID of the manager
+     * @param password password of the manager
+     * @return Manager object if manager present in the database
+     */
+
     public Manager loginAuthenticationManager(String login, String password) {
 
         Connection connection = null;
@@ -46,6 +53,12 @@ public class AuthenticationDao {
        return manager;
     }
 
+    /**
+     * Authenticates the Employee Login
+     * @param login Login ID of Employee
+     * @param password password of Employee
+     * @return Employee object if its present in the database
+     */
     public Employee loginAuthenticationEmployee(String login, String password) {
 
         Connection connection = null;

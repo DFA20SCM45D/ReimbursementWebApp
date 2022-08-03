@@ -29,6 +29,14 @@ public class ProcessReimbursementRequestServlet extends HttpServlet {
         om.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
     }
 
+    /**
+     * requests to process reimbursement request
+     * @param req
+     * @param resp
+     * @throws ServletException
+     * @throws IOException
+     */
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 

@@ -30,30 +30,58 @@ public class ManagerService {
     }
 
 
-
+    /**
+     * Requests for manager login authentication
+     * @param login loginID of manager
+     * @param password password of manager
+     * @return Manager object
+     */
     public Manager managerLogin(String login, String password){
         return authenticationDao.loginAuthenticationManager(login, password);
     }
+
+    /**
+     * Requests to process reimbursement requests
+     * @param requestid reimbursement request ID
+     * @param managerid managerID of manager
+     * @param status status of reimbursement request
+     * @return true if reimbursement request is approved/denied
+     */
     public boolean processReimbursementRequest(int requestid, int managerid, String status){
 
         return reimbursementDao.processReimbursementRequest(requestid, managerid, status);
 
     }
 
+    /**
+     * requests to view pending reimbursement requests
+     * @return list of pending reimbursement requests
+     */
     public List<Reimbursement> viewPendingRequestAllEmployee(){
-
         return reimbursementDao.ViewPendingRequestAllEmployee();
-
     }
 
+    /**
+     * requests to view resolved reimbursement requests
+     * @return list of resolved reimbursement requests
+     */
     public List<Reimbursement> viewResolvedRequestWithManager() {
         return reimbursementDao.viewResolvedReimbursementRequest();
     }
+
+    /**
+     * requests to return all employee
+     * @return list of all employees
+     */
     public List<Employee> viewAllEmployees(){
-
         return employeeDao.viewAllEmployees();
-
     }
+
+    /**
+     * requests to view reimbursement request by Employee ID
+     * @param empid Employee ID
+     * @return list of reimbursement request of an Employee
+     */
     public List<Reimbursement> viewReimbursementRequestSingleEmployee(int empid){
             List<Reimbursement> rList = new ArrayList<>();
             rList.addAll(reimbursementDao.viewPendingReimbursementRequest(empid));

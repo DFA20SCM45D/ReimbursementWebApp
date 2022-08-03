@@ -27,9 +27,6 @@ import static java.lang.System.out;
 public class ViewEmployeeServlet extends HttpServlet {
 
     private ObjectMapper om = new ObjectMapper();
-   // private static final ConnectionManager cm = new ConnectionManager("jdbc:postgresql://java-revature-dhairya.cibikjimihdn.us-east-2.rds.amazonaws.com:5432/project1", "postgres", "dhairyadixit", new org.postgresql.Driver());
-   // private static DataGetterService dgs = new DataGetterService(cm);
-
     @Override
     public void init() throws ServletException {
         out.println("Initializing Servlet");
@@ -37,6 +34,13 @@ public class ViewEmployeeServlet extends HttpServlet {
         om.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
     }
 
+    /**
+     * Request to view profile information of employee
+     * @param req
+     * @param resp
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         out.println(req.getRequestURI());
@@ -109,6 +113,13 @@ public class ViewEmployeeServlet extends HttpServlet {
         }
     }
 
+    /**
+     * Requests to update profile information
+     * @param req
+     * @param resp
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -137,18 +148,13 @@ public class ViewEmployeeServlet extends HttpServlet {
                 if (requestType.equalsIgnoreCase("profile_update")) {
 
                     Employee employee = om.readValue(req.getInputStream(), Employee.class);
-                   // BankAccount ba = om.readValue(req.getInputStream(), BankAccount.class);
 
                     ConnectionManager cm = (ConnectionManager) getServletContext().getAttribute("database");
                     EmployeeDao employeeDao = new EmployeeDao(cm);
 
                     EmployeeService es = new EmployeeService(employeeDao);
-                   // BankAccount ba = new BankAccount("111111112","000000000","5th2nd","checking");
-
-                  //  out.println("employee name new : "+ba.getAccountNo() +" empid: " +empid);
 
                     es.updateProfileInformation(employee, empid);
-
                     out.println("Employee profile updated");
                 }
 

@@ -21,7 +21,10 @@ public class EmployeeDao {
         this.cm = cm;
     }
 
-
+    /**
+     * To display list of All employees
+     * @return List of employees
+     */
 
     public List<Employee> viewAllEmployees() {
 
@@ -58,6 +61,11 @@ public class EmployeeDao {
          return employeeList;
     }
 
+    /**
+     * Gets employee profile information from database
+     * @param login Employee id
+     * @return Employee list of size 1
+     */
     public List<Employee> viewProfileInformation(int login){
 
         Connection connection = null;
@@ -95,6 +103,13 @@ public class EmployeeDao {
         return eList;
     }
 
+    /**
+     * Updates the profile information in database
+     * @param e employee
+     * @param empid employee ID
+     * @return true if profile details updated
+     */
+
     public boolean updateProfileInformation(Employee e, int empid) {
 
         Connection connection = null;
@@ -123,6 +138,13 @@ public class EmployeeDao {
         }
     }
 
+    /**
+     * Updates the Bank Account details of the Employee
+     * @param empid Employee ID
+     * @param b BankAccount object
+     * @param connection connection to database
+     * @return true if bank account detail is updated
+     */
     private boolean updateBankAccountDetails(int empid, BankAccount b, Connection connection){
 
         try {
