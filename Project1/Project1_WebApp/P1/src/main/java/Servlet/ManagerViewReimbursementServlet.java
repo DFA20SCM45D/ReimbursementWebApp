@@ -3,6 +3,7 @@ package Servlet;
 import JDBC.ConnectionManager;
 import JDBC.ReimbursementDao;
 import Model.Reimbursement;
+import Model.ReimbursementResponse;
 import Service.EmployeeService;
 import Service.ManagerService;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -81,10 +82,13 @@ public class ManagerViewReimbursementServlet extends HttpServlet {
 
                 }
 
+                ReimbursementResponse rList = new ReimbursementResponse();
+                rList.setReimbursement(r);
+
                 try {
                     if(r != null) {
                         resp.setContentType("application/json");
-                        resp.getWriter().write(om.writeValueAsString(r));
+                        resp.getWriter().write(om.writeValueAsString(rList));
                         resp.setStatus(200);
                     }
                 } catch  (JsonProcessingException e) {

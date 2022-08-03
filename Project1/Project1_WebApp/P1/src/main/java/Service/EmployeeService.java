@@ -9,6 +9,8 @@ import Model.Manager;
 import Model.Reimbursement;
 
 import java.util.List;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class EmployeeService {
 
@@ -29,6 +31,8 @@ public class EmployeeService {
         this.authenticationDao = authenticationDao;
     }
 
+    private static Logger logger = LogManager.getLogger(EmployeeService.class.getName());
+
     /**
      * requests for login of employee
      * @param login loginID of employee
@@ -36,6 +40,7 @@ public class EmployeeService {
      * @return Employee object
      */
     public Employee employeeLogin(String login, String password){
+        logger.debug("employee login requested");
         return authenticationDao.loginAuthenticationEmployee(login, password);
     }
 
@@ -45,6 +50,7 @@ public class EmployeeService {
      * @return list of resolved reimbursement requests
      */
     public List<Reimbursement> viewResolvedReimbursementRequest(int empid) {
+        logger.debug("requested to view resolved reimbursement requests");
         return reimbursementDao.viewResolvedReimbursementRequest(empid);
     }
 
@@ -54,6 +60,7 @@ public class EmployeeService {
      * @return list of pending reimbursement requests
      */
     public List<Reimbursement> viewPendingReimbursementRequest(int empid){
+        logger.debug("requested to view pending reimbursement requests");
         return reimbursementDao.viewPendingReimbursementRequest(empid);
     }
 
@@ -64,6 +71,7 @@ public class EmployeeService {
      * @return true if reimbursement request is submitted
      */
     public boolean submitReimbursementRequest(int empid, Reimbursement r) {
+        logger.debug("Requested to submit new reimbursement request");
         return reimbursementDao.submitReimbursementRequest(empid, r);
     }
 
@@ -73,6 +81,7 @@ public class EmployeeService {
      * @return list of employees with a size of 1
      */
     public List<Employee> viewProfileInformation(int login){
+        logger.debug("requested to view profile information");
         return employeeDao.viewProfileInformation(login);
     }
 
@@ -83,6 +92,7 @@ public class EmployeeService {
      * @return true if profile information updated
      */
     public boolean updateProfileInformation(Employee employee, int empid) {
+        logger.debug("requested to update profile information");
         return employeeDao.updateProfileInformation(employee, empid);
     }
 

@@ -6,6 +6,8 @@ import JDBC.ReimbursementDao;
 import Model.Employee;
 import Model.Manager;
 import Model.Reimbursement;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +31,7 @@ public class ManagerService {
         this.authenticationDao = authenticationDao;
     }
 
-
+    private static Logger logger = LogManager.getLogger(EmployeeService.class.getName());
     /**
      * Requests for manager login authentication
      * @param login loginID of manager
@@ -37,6 +39,7 @@ public class ManagerService {
      * @return Manager object
      */
     public Manager managerLogin(String login, String password){
+        logger.debug("requested to authenticate manager login");
         return authenticationDao.loginAuthenticationManager(login, password);
     }
 
@@ -48,9 +51,8 @@ public class ManagerService {
      * @return true if reimbursement request is approved/denied
      */
     public boolean processReimbursementRequest(int requestid, int managerid, String status){
-
+        logger.debug("requested to process reimbursement request");
         return reimbursementDao.processReimbursementRequest(requestid, managerid, status);
-
     }
 
     /**
@@ -58,6 +60,7 @@ public class ManagerService {
      * @return list of pending reimbursement requests
      */
     public List<Reimbursement> viewPendingRequestAllEmployee(){
+        logger.debug("requested to view pending requests of all employee");
         return reimbursementDao.ViewPendingRequestAllEmployee();
     }
 
@@ -66,6 +69,7 @@ public class ManagerService {
      * @return list of resolved reimbursement requests
      */
     public List<Reimbursement> viewResolvedRequestWithManager() {
+        logger.debug("requested to view resolved requests of all employee");
         return reimbursementDao.viewResolvedReimbursementRequest();
     }
 
@@ -74,6 +78,7 @@ public class ManagerService {
      * @return list of all employees
      */
     public List<Employee> viewAllEmployees(){
+        logger.debug("Requested to view all employees");
         return employeeDao.viewAllEmployees();
     }
 
@@ -86,6 +91,7 @@ public class ManagerService {
             List<Reimbursement> rList = new ArrayList<>();
             rList.addAll(reimbursementDao.viewPendingReimbursementRequest(empid));
             rList.addAll(reimbursementDao.viewResolvedReimbursementRequest(empid));
+            logger.debug("requested to view reimbursement request by employee");
             return rList;
     }
 

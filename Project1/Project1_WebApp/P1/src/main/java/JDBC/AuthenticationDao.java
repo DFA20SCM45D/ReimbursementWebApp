@@ -2,6 +2,9 @@ package JDBC;
 
 import Model.Employee;
 import Model.Manager;
+import Service.EmployeeService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,13 +18,14 @@ public class AuthenticationDao {
         this.cm = cm;
     }
 
+    private static Logger logger = LogManager.getLogger(EmployeeService.class.getName());
+
     /**
      * Authenticates the Manager Account's login
      * @param login login ID of the manager
      * @param password password of the manager
      * @return Manager object if manager present in the database
      */
-
     public Manager loginAuthenticationManager(String login, String password) {
 
         Connection connection = null;
@@ -50,6 +54,7 @@ public class AuthenticationDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        logger.debug("Manager Logged In");
        return manager;
     }
 
@@ -89,6 +94,7 @@ public class AuthenticationDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        logger.debug("Employee Logged In");
         return employee;
     }
 }
