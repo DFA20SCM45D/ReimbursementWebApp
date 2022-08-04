@@ -31,7 +31,7 @@ public class ManagerService {
         this.authenticationDao = authenticationDao;
     }
 
-    private static Logger logger = LogManager.getLogger(EmployeeService.class.getName());
+    private static Logger logger = LogManager.getLogger(ManagerService.class.getName());
     /**
      * Requests for manager login authentication
      * @param login loginID of manager

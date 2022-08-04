@@ -1,0 +1,55 @@
+
+`	java:S112;"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+`	java:S112c"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+a	java:S112‹"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+a	java:S112±"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+a	java:S112×"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+a	java:S112ö"FDefine and throw a dedicated exception instead of using a generic one.(áéÙ±şÿÿÿÿ
+a
+java:S1192W"FDefine a constant instead of duplicating this literal "empid" 8 times.(çÒáÈûÿÿÿÿ
+b
+java:S1192]"GDefine a constant instead of duplicating this literal "amount" 4 times.(Ö¢Çãÿÿÿÿÿ
+e
+java:S1192\"JDefine a constant instead of duplicating this literal "managerid" 4 times.(¥Ë¼ùÿÿÿÿ
+`
+java:S1192["JDefine a constant instead of duplicating this literal "requestid" 4 times.(êªÜˆ
+d
+java:S1192^"NDefine a constant instead of duplicating this literal "bankaccountno" 4 times.(ÂÜ‘Ó
+b
+java:S1192_"GDefine a constant instead of duplicating this literal "status" 4 times.(®ó´Õúÿÿÿÿ
+f	java:S117%"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(çÔéà
+k	java:S117L"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒŞ¿Œüÿÿÿÿ
+k	java:S117t"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(í©®æûÿÿÿÿ
+l	java:S117›"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ì–¦µúÿÿÿÿ
+l	java:S117Á"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( ä¸îüÿÿÿÿ
+l	java:S117è"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ú‘ÿÿÿÿÿ
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ú‚®Šùÿÿÿÿ
+c
+java:S2259."HA "NullPointerException" could be thrown; "connection" is nullable here.(¯ÅåĞúÿÿÿÿ
+k
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¯ÅåĞúÿÿÿÿ
+k
+java:S2095ë"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¯ÅåĞúÿÿÿÿ
+j
+java:S2095O"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¯ÅåĞúÿÿÿÿ
+j
+java:S2095."OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¯ÅåĞúÿÿÿÿ
+j
+java:S2095w"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¯ÅåĞúÿÿÿÿ
+k
+java:S2095Ä"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¯ÅåĞúÿÿÿÿ
+I
+java:S3416"3Update this logger to use "ReimbursementDao.class".(òé†”
+V	java:S125'"<This block of commented-out lines of code should be removed.(Üú£áÿÿÿÿÿ
+S	java:S106,"9Replace this use of System.out or System.err by a logger.(ÁÙú€ıÿÿÿÿ
+S	java:S106V"9Replace this use of System.out or System.err by a logger.(ƒÇãˆúÿÿÿÿ
+S	java:S106W"9Replace this use of System.out or System.err by a logger.(çÒáÈûÿÿÿÿ
+S	java:S106~"9Replace this use of System.out or System.err by a logger.(ƒÇãˆúÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(çÒáÈûÿÿÿÿ
+d	java:S100•"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡¿Ï‰
+T	java:S106¤"9Replace this use of System.out or System.err by a logger.(ƒÇãˆúÿÿÿÿ
+T	java:S106¥"9Replace this use of System.out or System.err by a logger.(çÒáÈûÿÿÿÿ
+T	java:S106Ê"9Replace this use of System.out or System.err by a logger.(ƒÇãˆúÿÿÿÿ
+T	java:S106Ë"9Replace this use of System.out or System.err by a logger.(çÒáÈûÿÿÿÿ
+F
+java:S1128"+Remove this unused import 'Model.Employee'.(Ò¾‡°úÿÿÿÿ

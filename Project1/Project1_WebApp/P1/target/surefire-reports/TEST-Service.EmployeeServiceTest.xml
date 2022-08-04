@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="Service.EmployeeServiceTest" time="1.08" tests="8" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="Service.EmployeeServiceTest" time="1.337" tests="8" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -18,7 +18,7 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_333\jre\bin"/>
-    <property name="sun.java.command" value="C:\Users\mukti\AppData\Local\Temp\surefire6350601552963748957\surefirebooter7898555003754909966.jar C:\Users\mukti\AppData\Local\Temp\surefire6350601552963748957 2022-08-03T16-53-00_650-jvmRun1 surefire1644670383754212684tmp surefire_0576661774627175768tmp"/>
+    <property name="sun.java.command" value="C:\Users\mukti\AppData\Local\Temp\surefire7096411929568592613\surefirebooter4658951494353523410.jar C:\Users\mukti\AppData\Local\Temp\surefire7096411929568592613 2022-08-04T12-57-19_235-jvmRun1 surefire8133211610023875318tmp surefire_05181701264175880174tmp"/>
     <property name="surefire.test.class.path" value="C:\Users\mukti\Revature\Dhairya_Dixit\Project\ReimbursementWebApp\Project1\Project1_WebApp\P1\target\test-classes;C:\Users\mukti\Revature\Dhairya_Dixit\Project\ReimbursementWebApp\Project1\Project1_WebApp\P1\target\classes;C:\Users\mukti\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\mukti\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\mukti\.m2\repository\org\mockito\mockito-all\1.10.19\mockito-all-1.10.19.jar;C:\Users\mukti\.m2\repository\org\apache\logging\log4j\log4j-api\2.18.0\log4j-api-2.18.0.jar;C:\Users\mukti\.m2\repository\org\apache\logging\log4j\log4j-core\2.18.0\log4j-core-2.18.0.jar;C:\Users\mukti\.m2\repository\com\h2database\h2\1.4.200\h2-1.4.200.jar;C:\Users\mukti\.m2\repository\org\postgresql\postgresql\42.4.0\postgresql-42.4.0.jar;C:\Users\mukti\.m2\repository\org\checkerframework\checker-qual\3.5.0\checker-qual-3.5.0.jar;C:\Users\mukti\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.13.3\jackson-databind-2.13.3.jar;C:\Users\mukti\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.13.3\jackson-annotations-2.13.3.jar;C:\Users\mukti\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.13.3\jackson-core-2.13.3.jar;C:\Users\mukti\.m2\repository\javax\servlet\javax.servlet-api\3.1.0\javax.servlet-api-3.1.0.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\mukti"/>
@@ -31,7 +31,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\mukti\AppData\Local\Temp\surefire6350601552963748957\surefirebooter7898555003754909966.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\mukti\AppData\Local\Temp\surefire7096411929568592613\surefirebooter4658951494353523410.jar"/>
     <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_333\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_333\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_333\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_333\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_333\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_333\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_333\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_333\jre\classes"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
@@ -60,12 +60,12 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="52.0"/>
   </properties>
-  <testcase name="shouldShowPendingReimbursementRequest" classname="Service.EmployeeServiceTest" time="0.892"/>
-  <testcase name="shouldAbleToSubmitReimbursementRequest" classname="Service.EmployeeServiceTest" time="0.013"/>
-  <testcase name="employeeShouldNotLogIn" classname="Service.EmployeeServiceTest" time="0.015"/>
-  <testcase name="shouldShowResolvedReimbursementRequest" classname="Service.EmployeeServiceTest" time="0.021"/>
-  <testcase name="shouldUpdateEmployeeProfileInformation" classname="Service.EmployeeServiceTest" time="0.017"/>
-  <testcase name="employeeShouldLogIN" classname="Service.EmployeeServiceTest" time="0.012"/>
-  <testcase name="shouldBeAbleToViewProfileInformation" classname="Service.EmployeeServiceTest" time="0.015"/>
-  <testcase name="shouldReturnProfileInformation" classname="Service.EmployeeServiceTest" time="0.022"/>
+  <testcase name="shouldShowPendingReimbursementRequest" classname="Service.EmployeeServiceTest" time="1.117"/>
+  <testcase name="shouldAbleToSubmitReimbursementRequest" classname="Service.EmployeeServiceTest" time="0.02"/>
+  <testcase name="employeeShouldNotLogIn" classname="Service.EmployeeServiceTest" time="0.027"/>
+  <testcase name="shouldShowResolvedReimbursementRequest" classname="Service.EmployeeServiceTest" time="0.037"/>
+  <testcase name="shouldUpdateEmployeeProfileInformation" classname="Service.EmployeeServiceTest" time="0.023"/>
+  <testcase name="employeeShouldLogIN" classname="Service.EmployeeServiceTest" time="0.018"/>
+  <testcase name="shouldBeAbleToViewProfileInformation" classname="Service.EmployeeServiceTest" time="0.02"/>
+  <testcase name="shouldReturnProfileInformation" classname="Service.EmployeeServiceTest" time="0.019"/>
 </testsuite>

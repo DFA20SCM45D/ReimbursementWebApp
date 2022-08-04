@@ -10,6 +10,8 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -25,6 +27,7 @@ import static java.lang.System.out;
 public class ManagerViewReimbursementServlet extends HttpServlet {
 
     private ObjectMapper om = new ObjectMapper();
+    private static Logger logger = LogManager.getLogger(EmployeeService.class.getName());
 
     @Override
     public void init() throws ServletException {
@@ -42,6 +45,8 @@ public class ManagerViewReimbursementServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        logger.debug("Manager requested to view reimbursement requests");
 
         String requestType = req.getRequestURI().split("/")[4];
 
@@ -72,14 +77,16 @@ public class ManagerViewReimbursementServlet extends HttpServlet {
 
                 if(requestType.equalsIgnoreCase("pending")){
                     r = ms.viewPendingRequestAllEmployee();
+                    logger.debug("Manager view pending requests of all employee");
                 }
                 else if(requestType.equalsIgnoreCase("resolved")){
                     r = ms.viewResolvedRequestWithManager();
+                    logger.debug("Manager view pending requests of all employee");
                 }
                 else if(requestType.equalsIgnoreCase("empid")){
                     int empid = Integer.parseInt(req.getRequestURI().split("/")[5]);
                     r = ms.viewReimbursementRequestSingleEmployee(empid);
-
+                    logger.debug("Manager view all reimbursement requests by employee ID");
                 }
 
                 ReimbursementResponse rList = new ReimbursementResponse();
@@ -96,6 +103,9 @@ public class ManagerViewReimbursementServlet extends HttpServlet {
                 catch (IOException ioException) {
                 }
             }
+        } else{
+            resp.setStatus(403);
+            resp.getWriter().write(om.writeValueAsString("Manager Not Logged In to Access this Facility"));
         }
     }
 

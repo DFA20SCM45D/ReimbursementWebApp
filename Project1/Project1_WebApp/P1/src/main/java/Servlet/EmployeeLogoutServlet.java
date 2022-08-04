@@ -4,11 +4,14 @@ import JDBC.ConnectionManager;
 import JDBC.EmployeeDao;
 import Model.Employee;
 import Model.EmployeeResponse;
+import Service.EmployeeService;
 import Service.ManagerService;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,6 +29,7 @@ import static java.lang.System.out;
 public class EmployeeLogoutServlet extends HttpServlet {
 
     private ObjectMapper om = new ObjectMapper();
+    private static Logger logger = LogManager.getLogger(EmployeeService.class.getName());
     @Override
     public void init() throws ServletException {
         out.println("Initializing Logout Servlet");
@@ -46,7 +50,7 @@ public class EmployeeLogoutServlet extends HttpServlet {
         Cookie cookie = new Cookie("login", "true");
         cookie.setMaxAge(0);
         resp.addCookie(cookie);
-
+        resp.getWriter().write(om.writeValueAsString("Employee Logged Out"));
+        logger.debug("Employee Logged Out Successfully");
     }
-
 }

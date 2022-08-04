@@ -3,7 +3,10 @@ package JDBC;
 import Model.BankAccount;
 import Model.Employee;
 import Model.Reimbursement;
+import Service.EmployeeService;
 import Service.ManagerService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
 import java.sql.Connection;
@@ -20,6 +23,8 @@ public class EmployeeDao {
     public EmployeeDao(ConnectionManager cm) {
         this.cm = cm;
     }
+
+    private static Logger logger = LogManager.getLogger(EmployeeService.class.getName());
 
     /**
      * To display list of All employees
@@ -57,7 +62,7 @@ public class EmployeeDao {
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
-
+    logger.debug("View All Employee, Returning list of all Employee");
          return employeeList;
     }
 
@@ -100,6 +105,7 @@ public class EmployeeDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        logger.debug("View Profile Information by an Employee ID, Returning profile info.");
         return eList;
     }
 
@@ -129,7 +135,7 @@ public class EmployeeDao {
             stmt.executeUpdate();
 
            // updateBankAccountDetails(empid, b, connection);
-
+            logger.debug("Profile Updated");
             return true;
 
         } catch (SQLException es) {
@@ -160,7 +166,7 @@ public class EmployeeDao {
             stmt.setInt(5,empid);
 
             stmt.executeUpdate();
-
+            logger.debug("Bank Account details updated");
             return true;
 
         } catch (SQLException es) {

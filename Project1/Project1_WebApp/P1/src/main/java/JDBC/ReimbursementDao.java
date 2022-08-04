@@ -2,6 +2,9 @@ package JDBC;
 
 import Model.Employee;
 import Model.Reimbursement;
+import Service.EmployeeService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,6 +20,8 @@ public class ReimbursementDao {
     public ReimbursementDao(ConnectionManager cm) {
         this.cm = cm;
     }
+
+    private static Logger logger = LogManager.getLogger(EmployeeService.class.getName());
 
     /**
      * updates the Reimbursement request to database
@@ -47,6 +52,7 @@ public class ReimbursementDao {
 
             stmt.executeUpdate();
 
+            logger.debug("New reimbursement request is submitted");
             return true;
 
         } catch (SQLException e) {
@@ -92,6 +98,7 @@ public class ReimbursementDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        logger.debug("Resolved reimbursement requests are returned");
         return resolvedReimbursementRequest;
     }
 
@@ -131,6 +138,7 @@ public class ReimbursementDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        logger.debug("Pending reimbursement requests are returned");
         return resolvedReimbursementRequest;
     }
 
@@ -168,6 +176,7 @@ public class ReimbursementDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        logger.debug("All Pending reimbursement requests are returned");
         return pendingReimbursementRequest;
     }
 
@@ -205,6 +214,7 @@ public class ReimbursementDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        logger.debug("All Resolved reimbursement requests are returned");
         return resolvedReimbursementRequest;
     }
 
@@ -229,7 +239,7 @@ public class ReimbursementDao {
             stmt.setInt(3,requestid);
 
             stmt.executeUpdate();
-
+            logger.debug("Reimbursement request is processed by Managar");
             return true;
 
         } catch (SQLException es) {

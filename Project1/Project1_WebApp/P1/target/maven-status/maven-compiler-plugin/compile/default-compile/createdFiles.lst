@@ -3,9 +3,9 @@ Servlet\ManagerLogoutServlet.class
 Servlet\ManagerViewReimbursementServlet.class
 Servlet\ReimbursementRequestServlet.class
 Servlet\ManagerViewAllEmployeeServlet.class
+Servlet\ProcessReimbursementRequestServlet.class
 Servlet\EmployeeAuthenticationServlet.class
 Servlet\ManagerAuthenticationServlet.class
 JDBC\AuthenticationDao.class
-Servlet\ProcessReimbursementRequestServlet.class
 JDBC\ReimbursementDao.class
 Servlet\EmployeeLogoutServlet.class

@@ -9,6 +9,8 @@ import Service.ManagerService;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,6 +23,7 @@ import static java.lang.System.out;
 public class ManagerAuthenticationServlet extends HttpServlet{
 
         private ObjectMapper om = new ObjectMapper();
+    private static Logger logger = LogManager.getLogger(EmployeeService.class.getName());
 
         @Override
         public void init() throws ServletException {
@@ -38,6 +41,8 @@ public class ManagerAuthenticationServlet extends HttpServlet{
      */
     @Override
         protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        logger.debug("Manager authentication requested");
 
             HttpSession userSession = req.getSession(true);
 
@@ -61,6 +66,13 @@ public class ManagerAuthenticationServlet extends HttpServlet{
 
             }
 
+            if(m.getLoginID() == null){
+                resp.getWriter().write(om.writeValueAsString("Username or password is incorrect"));
+            } else {
+                resp.getWriter().write(om.writeValueAsString("Manager Logged In"));
+            }
+
+            logger.debug("Mangaer logged in");
             resp.setStatus(201);
         }
 

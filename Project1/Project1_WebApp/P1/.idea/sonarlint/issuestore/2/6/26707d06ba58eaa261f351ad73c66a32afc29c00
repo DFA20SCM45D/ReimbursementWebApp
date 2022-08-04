@@ -1,0 +1,43 @@
+
+`	java:S112?"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+`	java:S112j"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+a	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(áéÙ±şÿÿÿÿ
+a	java:S112­"FDefine and throw a dedicated exception instead of using a generic one.(áéÙ±şÿÿÿÿ
+a
+java:S11924"FDefine a constant instead of duplicating this literal "fname" 4 times.(ÔÛâşÿÿÿÿ
+a
+java:S11923"FDefine a constant instead of duplicating this literal "empid" 4 times.(çÒáÈûÿÿÿÿ
+\
+java:S11925"FDefine a constant instead of duplicating this literal "lname" 4 times.(ĞÆÑ¤
+f	java:S117)"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Üç¼
+f	java:S117P"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®ıÚÜ
+k	java:S117|"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€’øËÿÿÿÿÿ
+l	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­•çìıÿÿÿÿ
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ú‚®Šùÿÿÿÿ
+^
+java:S1226Ÿ"GIntroduce a new variable instead of reusing the parameter "connection".(±ãÑÊ
+j
+java:S2095S"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¯ÅåĞúÿÿÿÿ
+k
+java:S2095 "OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¯ÅåĞúÿÿÿÿ
+j
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¯ÅåĞúÿÿÿÿ
+j
+java:S2095,"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¯ÅåĞúÿÿÿÿ
+D
+java:S3416".Update this logger to use "EmployeeDao.class".(òé†”
+S	java:S1062"9Replace this use of System.out or System.err by a logger.(ƒÇãˆúÿÿÿÿ
+S	java:S1063"9Replace this use of System.out or System.err by a logger.(çÒáÈûÿÿÿÿ
+S	java:S1064"9Replace this use of System.out or System.err by a logger.(ÔÛâşÿÿÿÿ
+N	java:S1065"9Replace this use of System.out or System.err by a logger.(ĞÆÑ¤
+S	java:S106\"9Replace this use of System.out or System.err by a logger.(ƒÇãˆúÿÿÿÿ
+S	java:S106]"9Replace this use of System.out or System.err by a logger.(çÒáÈûÿÿÿÿ
+S	java:S106^"9Replace this use of System.out or System.err by a logger.(ÔÛâşÿÿÿÿ
+N	java:S106_"9Replace this use of System.out or System.err by a logger.(ĞÆÑ¤
+R	java:S125‰"<This block of commented-out lines of code should be removed.(Î¶µı
+K
+java:S1128"0Remove this unused import 'Model.Reimbursement'.(ÉÚ®åıÿÿÿÿ
+N
+java:S1128"3Remove this unused import 'Service.ManagerService'.(¹Ëõ×ıÿÿÿÿ
+T
+java:S1144š"=Remove this unused private "updateBankAccountDetails" method.(×–Æ‚

@@ -6,6 +6,8 @@ import Model.Reimbursement;
 import Service.EmployeeService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,6 +21,7 @@ import static java.lang.System.out;
 @WebServlet(name = "ViewReimbursementRequestEmployee",initParams = {})
 public class ViewReimbursementRequestEmployee extends HttpServlet {
     private ObjectMapper om = new ObjectMapper();
+    private static Logger logger = LogManager.getLogger(EmployeeService.class.getName());
 
     /**
      * Requests for pending and resolved reimbursement requests and for all reimbursement requests by employee ID
@@ -31,6 +34,8 @@ public class ViewReimbursementRequestEmployee extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         out.println("view reimbursement request"+req.getRequestURI());
+
+        logger.debug("view Reimbursement request");
 
         String requestType = req.getRequestURI().split("/")[3];
         out.println("request type in view reimbursement servlet  ------- " +requestType);
@@ -66,13 +71,16 @@ public class ViewReimbursementRequestEmployee extends HttpServlet {
 
             if(requestType.equalsIgnoreCase("pending")){
                 r = es.viewPendingReimbursementRequest(empid);
+                logger.debug("Pending reimbursement requests returned");
             }
             else if(requestType.equalsIgnoreCase("resolved")){
                 r = es.viewResolvedReimbursementRequest(empid);
+                logger.debug("Resolved reimbursement requests returned");
             }
             else if(requestType == null){
                 r = es.viewResolvedReimbursementRequest(empid);
                 r.addAll(es.viewPendingReimbursementRequest(empid));
+                logger.debug("all reimbursement requests of an employee returned");
             }
 
             try {
@@ -86,6 +94,9 @@ public class ViewReimbursementRequestEmployee extends HttpServlet {
                 catch (IOException ioException) {
                 }
             }
+        } else {
+            resp.setStatus(403);
+            resp.getWriter().write(om.writeValueAsString("Manager Not Logged In to Access this Facility"));
         }
     }
 }

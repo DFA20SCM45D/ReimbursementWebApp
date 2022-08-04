@@ -12,6 +12,8 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,6 +29,7 @@ import static java.lang.System.out;
 public class ViewEmployeeServlet extends HttpServlet {
 
     private ObjectMapper om = new ObjectMapper();
+    private static Logger logger = LogManager.getLogger(EmployeeService.class.getName());
     @Override
     public void init() throws ServletException {
         out.println("Initializing Servlet");
@@ -44,6 +47,8 @@ public class ViewEmployeeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         out.println(req.getRequestURI());
+
+        logger.debug("View all employee requested");
 
         String requestType = req.getRequestURI().split("/")[3];
 
@@ -105,11 +110,15 @@ public class ViewEmployeeServlet extends HttpServlet {
                         resp.setContentType("application/json");
                         resp.getWriter().write(om.writeValueAsString(eList));
                         resp.setStatus(200);
+                        logger.debug("All employee returned");
                     } catch (JsonProcessingException e) {
                     } catch (IOException ioException) {
                     }
                 }
             }
+        } else {
+            resp.setStatus(403);
+            resp.getWriter().write(om.writeValueAsString("Manager Not Logged In to Access this Facility"));
         }
     }
 
@@ -159,6 +168,9 @@ public class ViewEmployeeServlet extends HttpServlet {
                 }
 
             }
+        } else {
+            resp.setStatus(403);
+            resp.getWriter().write(om.writeValueAsString("Manager Not Logged In to Access this Facility"));
         }
     }
 }

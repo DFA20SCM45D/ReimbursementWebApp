@@ -14,6 +14,8 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -29,6 +31,7 @@ import static java.lang.System.out;
 public class EmployeeAuthenticationServlet extends HttpServlet {
 
     private ObjectMapper om = new ObjectMapper();
+    private static Logger logger = LogManager.getLogger(EmployeeService.class.getName());
 
     @Override
     public void init() throws ServletException {
@@ -47,6 +50,8 @@ public class EmployeeAuthenticationServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        logger.debug("Employee authentication requested");
+
         HttpSession userSession = req.getSession(true);
 
             Employee employee = om.readValue(req.getInputStream(), Employee.class);
@@ -62,13 +67,18 @@ public class EmployeeAuthenticationServlet extends HttpServlet {
 
             if (e != null) {
 
-                out.println("Login Successful" + e.getFirstName() + " " + e.getLastName());
+                logger.debug("Login Successful");
                 Cookie cookie = new Cookie("login", "true");
                 cookie.setMaxAge(7 * 24 * 60 * 60);
                 resp.addCookie(cookie);
-
+                resp.setStatus(201);
             }
 
-            resp.setStatus(201);
+        if(e.getFirstName() == null){
+            resp.getWriter().write(om.writeValueAsString("Login or Password in Incorrect"));
+        } else {
+            resp.getWriter().write(om.writeValueAsString("Login Successful"));
+        }
+
     }
 }

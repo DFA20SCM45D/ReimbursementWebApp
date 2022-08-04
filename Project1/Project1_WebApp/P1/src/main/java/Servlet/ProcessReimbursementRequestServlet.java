@@ -8,6 +8,8 @@ import Service.ManagerService;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,6 +23,8 @@ import static java.lang.System.out;
 public class ProcessReimbursementRequestServlet extends HttpServlet {
 
     private ObjectMapper om = new ObjectMapper();
+
+    private static Logger logger = LogManager.getLogger(EmployeeService.class.getName());
 
     @Override
     public void init() throws ServletException {
@@ -39,6 +43,8 @@ public class ProcessReimbursementRequestServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        logger.debug("manager requested to process the request");
 
         HttpSession userSession = req.getSession(true);
         int managerid = (int) userSession.getAttribute("managerid");
@@ -70,12 +76,15 @@ public class ProcessReimbursementRequestServlet extends HttpServlet {
                 ms.processReimbursementRequest(reimbursement.getReimbursmentID(),managerid,reimbursement.getStatus());
 
                 resp.setStatus(201);
+                logger.debug("Manager processed reimbursement request");
 
             } else {
                 out.println("not logged in to perform this action");
             }
         }  else {
             out.println("not logged in to perform this action");
+            resp.setStatus(403);
+            resp.getWriter().write(om.writeValueAsString("Manager Not Logged In to Access this Facility"));
         }
     }
 }
